@@ -7,18 +7,18 @@ import org.springframework.context.annotation.Bean;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-//class MyUserDetailsServiceTest {
-//
-//    @InjectMocks
-//    private MyUserDetailsService myUserDetailsService;
-//
-////    @BeforeAll
-//    public void setUp(){
-//        myUserDetailsService = new MyUserDetailsService();
-//    }
-//
-//    @Test
-//    void loadUserByUsername() {
-//    }
-//
-//}
+class MyUserDetailsServiceTest {
+
+    @InjectMocks
+    private MyUserDetailsService myUserDetailsService;
+
+//    @BeforeAll
+    public void setUp(){
+        myUserDetailsService = new MyUserDetailsService();
+    }
+
+    @Test
+    void loadUserByUsername() {
+    }
+
+}
