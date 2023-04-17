@@ -62,7 +62,7 @@
 					<p class="subDetails">
 						<span th:text="${job.formattedStartDate} ">Start Date</span> to  <!-- &emsp; for space between two word -->
 						<span th:text="${job.CurrentJob}? 'Present' : ${job.formattedEndDate}">Present</span></p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
+					<p><h5> <span th:text="${job.jobSummary}">Job Summary </span>  </h5></p>
 				</article>
 			</div>
 			<div class="clear"></div>

@@ -27,6 +27,8 @@ public class Job {
 
     @Column(name = "job_status")
     private boolean CurrentJob;
+    @Column(name = "job_summary")
+    private String jobSummary;
 
 
     @Override
@@ -37,6 +39,8 @@ public class Job {
                 ", designation='" + designation + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
+                ", CurrentJob=" + CurrentJob +
+                ", jobSummary='" + jobSummary + '\'' +
                 '}';
     }
 
@@ -96,5 +100,11 @@ public class Job {
         CurrentJob = currentJob;
     }
 
+    public String getJobSummary() {
+        return jobSummary;
+    }
 
+    public void setJobSummary(String jobSummary) {
+        this.jobSummary = jobSummary;
+    }
 }
