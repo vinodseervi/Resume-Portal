@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "jobs")
@@ -20,6 +22,10 @@ public class Job {
     private LocalDate startDate;
     @Column(name = "end_date")
     private LocalDate endDate;
+
+    @Column(name = "job_status")
+    private boolean CurrentJob;
+
 
     @Override
     public String toString() {
@@ -71,4 +77,13 @@ public class Job {
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
+
+    public boolean isCurrentJob() {
+        return CurrentJob;
+    }
+
+    public void setCurrentJob(boolean currentJob) {
+        CurrentJob = currentJob;
+    }
+
 }
