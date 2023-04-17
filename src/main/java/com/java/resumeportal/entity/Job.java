@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,6 +80,14 @@ public class Job {
         this.endDate = endDate;
     }
 
+    public String getFormattedStartDate(){
+        return startDate.format(DateTimeFormatter.ofPattern("MMM-yyyy"));
+    }
+
+    public String getFormattedEndDate(){
+        return endDate.format(DateTimeFormatter.ofPattern("MMM-yyyy"));
+    }
+
     public boolean isCurrentJob() {
         return CurrentJob;
     }
@@ -85,5 +95,6 @@ public class Job {
     public void setCurrentJob(boolean currentJob) {
         CurrentJob = currentJob;
     }
+
 
 }

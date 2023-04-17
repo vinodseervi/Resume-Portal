@@ -60,8 +60,8 @@
 					<h2><span th:text="${job.designation}">Job Title</span> <span th:text="${job.company}">Company</span></h2>
 					<!-- TODO - Tackle present situation -->
 					<p class="subDetails">
-						<span th:text="${job.startDate} ">Start Date</span> to
-						<span th:text="${job.CurrentJob}? 'Present' : ${job.endDate}">Present</span></p>
+						<span th:text="${job.formattedStartDate} ">Start Date</span> to  <!-- &emsp; for space between two word -->
+						<span th:text="${job.CurrentJob}? 'Present' : ${job.formattedEndDate}">Present</span></p>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
 				</article>
 			</div>
