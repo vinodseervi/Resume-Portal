@@ -1,4 +1,4 @@
-package com.java.resumeportal.entity;
+package com.java.resumeportal.entity.user;
 
 import jakarta.persistence.*;
 

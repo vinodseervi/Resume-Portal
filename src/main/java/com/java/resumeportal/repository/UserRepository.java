@@ -1,6 +1,6 @@
 package com.java.resumeportal.repository;
 
-import com.java.resumeportal.entity.User;
+import com.java.resumeportal.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

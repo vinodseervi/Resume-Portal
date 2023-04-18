@@ -2,8 +2,8 @@ package com.java.resumeportal.service;
 
 
 
-import com.java.resumeportal.entity.MyUserDetails;
-import com.java.resumeportal.entity.User;
+import com.java.resumeportal.entity.user.MyUserDetails;
+import com.java.resumeportal.entity.user.User;
 import com.java.resumeportal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
