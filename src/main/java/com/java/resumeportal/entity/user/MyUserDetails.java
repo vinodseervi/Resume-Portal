@@ -1,6 +1,7 @@
-package com.java.resumeportal.entity;
+package com.java.resumeportal.entity.user;
 
 
+import com.java.resumeportal.entity.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

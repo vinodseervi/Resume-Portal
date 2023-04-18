@@ -1,4 +1,4 @@
-package com.java.resumeportal.entity;
+package com.java.resumeportal.entity.resumeData;
 
 import jakarta.persistence.*;
 
@@ -35,6 +35,16 @@ public class UserProfile {
     @JoinColumn(name = "job_id")
     List<Job> jobs = new ArrayList<>();
 
+
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    @JoinColumn(name = "education_id")
+    List<Education> educations = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    @JoinColumn(name = "skill_id")
+    List<Skills> skills = new ArrayList<>();
 
 
     public int getId() {
@@ -124,4 +134,19 @@ public class UserProfile {
         this.jobs = jobs;
     }
 
+    public List<Education> getEducations() {
+        return educations;
+    }
+
+    public void setEducations(List<Education> educations) {
+        this.educations = educations;
+    }
+
+    public List<Skills> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skills> skills) {
+        this.skills = skills;
+    }
 }

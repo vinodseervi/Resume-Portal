@@ -1,6 +1,6 @@
 package com.java.resumeportal.controller;
 
-import com.java.resumeportal.entity.UserProfile;
+import com.java.resumeportal.entity.resumeData.UserProfile;
 import com.java.resumeportal.repository.UserProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +25,9 @@ public class UserRestController {
         UserProfile userProfile= userProfileOptional.get();
         model.addAttribute("userProfile", userProfile);
         System.out.println(userProfile.getJobs());
+        System.out.println(userProfile.getEducations());
+        System.out.println(userProfile.getSkills());
+
        // model.addAttribute("job", userProfile.getJobs());
         return "profile-templates/" + userProfile.getId() + "/index";
     }
