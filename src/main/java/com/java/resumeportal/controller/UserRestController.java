@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import java.security.Principal;
 import java.util.Optional;
 
 @Controller
@@ -15,6 +17,24 @@ public class UserRestController {
 
     @Autowired
     UserProfileRepository userProfileRepository;
+
+    @GetMapping("/edit")
+    public String edit(Model model, Principal principal){
+        String userId = principal.getName();
+        model.addAttribute("userId", userId);
+        Optional<UserProfile> userProfileOptional = userProfileRepository.findByUserName(userId);
+        userProfileOptional.orElseThrow(() -> new RuntimeException("Not found: " + userId));
+        UserProfile userProfile= userProfileOptional.get();
+        model.addAttribute("userProfile",userProfile);
+        return "profile-edit";
+    }
+
+    @PostMapping("/edit")
+    public String postEdit(Model model, Principal principal){
+        String userId = principal.getName();
+        // save the updated values in the form
+        return "redirect:/view/" + userId;
+    }
 
     @GetMapping("/view/{userId}")
     public String view(@PathVariable String userId, Model model){
