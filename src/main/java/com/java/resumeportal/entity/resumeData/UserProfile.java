@@ -46,6 +46,11 @@ public class UserProfile {
     @JoinColumn(name = "skill_id")
     List<Skills> skills = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    @JoinColumn(name = "skill_id")
+    List<Hobbies> hobbies = new ArrayList<>();
+
 
     public int getId() {
         return id;
@@ -148,5 +153,13 @@ public class UserProfile {
 
     public void setSkills(List<Skills> skills) {
         this.skills = skills;
+    }
+
+    public List<Hobbies> getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(List<Hobbies> hobbies) {
+        this.hobbies = hobbies;
     }
 }

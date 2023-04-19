@@ -57,12 +57,20 @@
 			
 			<div class="sectionContent" th:each="job : ${userProfile.jobs}">
 				<article>
-					<h2><span th:text="${job.designation}">Job Title</span> <span th:text="${job.company}">Company</span></h2>
+					<h2><span th:text="${job.designation}">Job Title</span>
+						<span th:text="${job.company}">Company</span></h2>
 					<!-- TODO - Tackle present situation -->
 					<p class="subDetails">
 						<span th:text="${job.formattedStartDate} ">Start Date</span> to  <!-- &emsp; for space between two word -->
 						<span th:text="${job.CurrentJob}? 'Present' : ${job.formattedEndDate}">Present</span></p>
-					<p><h5> <span th:text="${job.jobSummary}">Job Summary </span>  </h5></p>
+					<ul>
+						<li>
+							<h5>
+								<span th:text="${job.jobSummary}">Job Summary </span>
+							</h5>
+						</li>
+
+					</ul>
 				</article>
 			</div>
 			<div class="clear"></div>
@@ -97,6 +105,23 @@
 						<span th:text="${education.formattedStartDate} ">Start Date</span> &emsp;to&emsp;  <!-- &emsp; for space between two word -->
 						<span th:text="${education.formattedEndDate} "> End Date</span></p>
 					<p><span th:text="${education.summary}">About College</span></p>
+				</article>
+
+			</div>
+			<div class="clear"></div>
+		</section>
+
+		<section>
+			<div class="sectionTitle">
+				<h1>Hobbies</h1>
+			</div>
+
+			<div class="sectionContent"  th:each="hobbies : ${userProfile.hobbies}">
+				<article>
+					<h3>
+						<span th:text="${hobbies.hobbiesName}">Job Summary </span>
+
+					</h3>
 				</article>
 
 			</div>
