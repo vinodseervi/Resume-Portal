@@ -39,7 +39,10 @@
         
             <!-- Microformats! -->
         
-            <h1 class="fn"><span th:text="${userProfile.firstName}">joe</span> <span th:text="${userProfile.lastName}">bloggs</span></h1>
+            <h1 class="fn"><span th:text="${userProfile.firstName}">joe</span>
+                <span th:text="${userProfile.lastName}">bloggs</span><br>
+              <h3>  <span th:text="${userProfile.designation}">Job Title</span></h3>
+            </h1>
         
             <p>
                 Cell: <span class="tel" th:text="${userProfile.phone}">555-666-7777</span><br />
@@ -49,12 +52,7 @@
         </div>
                 
         <div id="objective">
-            <p th:text="${userProfile.summary}">
-                I am an outgoing and energetic (ask anybody) young professional, seeking a 
-                career that fits my professional skills, personality, and murderous tendencies. 
-                My squid-like head is a masterful problem solver and inspires fear in who gaze upon it. 
-                I can bring world domination to your organization. 
-            </p>
+            <p th:text="${userProfile.summary}">Summary</p>
         </div>
         
         <div class="clear"></div>
@@ -63,51 +61,50 @@
             <dd class="clear"></dd>
             
             <dt>Education</dt>
-            <dd>
-                <h2>Withering Madness University - Planet Vhoorl</h2>
-                <p><strong>Major:</strong> Public Relations<br />
-                   <strong>Minor:</strong> Scale Tending</p>
+            <dd th:each="education : ${userProfile.educations}">
+                <p><strong><span th:text="${education.college}">College/University</span></strong></p>
+                <p> <span th:text="${education.qualification}">Qualification</span>  &emsp;-&emsp;
+                    <span th:text="${education.formattedStartDate} ">Start Date</span> to  <!-- &emsp; for space between two word -->
+                    <span th:text="${education.formattedEndDate} "> End Date</span></p> </p>
+                <p><span th:text="${education.summary}">About College</span></p>
             </dd>
             
             <dd class="clear"></dd>
             
             <dt>Skills</dt>
-            <dd>
-                <h2>Office skills</h2>
-                <p>Office and records management, database administration, event organization, customer support, travel coordination</p>
-                
-                <h2>Computer skills</h2>
-                <p>Microsoft productivity software (Word, Excel, etc), Adobe Creative Suite, Windows</p>
+            <dd th:each="skills : ${userProfile.skills}">
+                <p> <strong><span th:text="${skills.skill}">A Key Skill</span></strong></p>
+
             </dd>
             
             <dd class="clear"></dd>
             
             <dt>Experience</dt>
-            <dd>
-                <h2>Doomsday Cult <span>Leader/Overlord - Baton Rogue, LA - 1926-2010</span></h2>
+            <dd th:each="job : ${userProfile.jobs}">
+                <p><strong><span th:text="${job.company}">Company</span> &emsp;</strong>
+                    <span th:text="${job.designation}">Job Title</span>&emsp;-&emsp;
+                    <span th:text="${job.formattedStartDate} ">Start Date</span> to  <!-- &emsp; for space between two word -->
+                    <span th:text="${job.CurrentJob}? 'Present' : ${job.formattedEndDate}">Present</span></p></p>
                 <ul>
-                    <li>Inspired and won highest peasant death competition among servants</li>
-                    <li>Helped coordinate managers to grow cult following</li>
-                    <li>Provided untimely deaths to all who opposed</li>
-                </ul>
+                    <li>
+                        <h5>
+                            <span th:text="${job.jobSummary}">Job Summary </span>
+                        </h5>
+                    </li>
 
-                <h2>The Watering Hole <span>Bartender/Server - Milwaukee, WI - 2009</span></h2>
-                <ul>
-                    <li>Worked on grass-roots promotional campaigns</li>
-                    <li>Reduced theft and property damage percentages</li>
-                    <li>Janitorial work, Laundry</li>
                 </ul>
             </dd>
             
             <dd class="clear"></dd>
             
             <dt>Hobbies</dt>
-            <dd>World Domination, Deep Sea Diving, Murder Most Foul</dd>
-            
-            <dd class="clear"></dd>
-            
-            <dt>References</dt>
-            <dd>Available on request</dd>
+            <dd th:each="hobbies : ${userProfile.hobbies}">
+                <p>
+                    <h3>
+                <span th:text="${hobbies.hobbiesName}">Job Summary </span>
+
+                    </h3>
+                </p></dd>
             
             <dd class="clear"></dd>
         </dl>
