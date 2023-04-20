@@ -15,6 +15,10 @@ public class UserRestController {
 
     @Autowired
     UserProfileRepository userProfileRepository;
+        @GetMapping("/")
+        public String home(){
+        return "index";
+    }
 
     @GetMapping("/edit")
     public String edit(Model model, Principal principal, @RequestParam(required = false)String add){
