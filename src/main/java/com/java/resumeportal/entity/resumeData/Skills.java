@@ -32,7 +32,7 @@ public class Skills {
         return skill;
     }
 
-    public void setSkill1(String skill) {
+    public void setSkill(String skill) {
         this.skill = skill;
     }
 }
