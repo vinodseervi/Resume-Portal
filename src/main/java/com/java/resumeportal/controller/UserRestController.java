@@ -71,7 +71,12 @@ public class UserRestController {
     }
 
     @GetMapping("/view/{userId}")
-    public String view(@PathVariable String userId, Model model){
+    public String view(Principal principal,@PathVariable String userId, Model model){
+        if(principal != null && principal.getName() != " "){
+            boolean currentUserProfile = principal.getName().equals(userId);
+            model.addAttribute("currentUserProfile", currentUserProfile);
+        }
+        String userName = principal.getName();
         Optional<UserProfile> userProfileOptional = userProfileRepository.findByUserName(userId);
         userProfileOptional.orElseThrow(() -> new RuntimeException("Not found: " + userId));
 

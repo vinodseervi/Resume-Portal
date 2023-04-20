@@ -20,7 +20,9 @@
 		<div id="hd">
 			<div class="yui-gc">
 				<div class="yui-u first">
-					<h1><span th:text="${userProfile.firstName}">Jonathan</span> <span th:text="${userProfile.lastName}">Doe</span></h1>
+					<h1><span th:text="${userProfile.firstName}">Jonathan</span>
+						<span th:text="${userProfile.lastName}">Doe</span>
+						<h2><a th:if="${currentUserProfile}" href="/edit">Edit</a></h2></h1>
 					<h2><span th:text="${userProfile.designation}">Job Title</span></h2>
 				</div>
 

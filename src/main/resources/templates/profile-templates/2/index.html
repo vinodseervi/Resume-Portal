@@ -40,7 +40,8 @@
             <!-- Microformats! -->
         
             <h1 class="fn"><span th:text="${userProfile.firstName}">joe</span>
-                <span th:text="${userProfile.lastName}">bloggs</span><br>
+                <span th:text="${userProfile.lastName}">bloggs</span>
+                <h2><a th:if="${currentUserProfile}" href="/edit">Edit</a></h2><br>
               <h3>  <span th:text="${userProfile.designation}">Job Title</span></h3>
             </h1>
         
