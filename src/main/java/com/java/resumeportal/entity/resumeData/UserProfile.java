@@ -48,7 +48,7 @@ public class UserProfile {
 
     @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true)
-    @JoinColumn(name = "skill_id")
+    @JoinColumn(name = "hobbies_id")
     List<Hobbies> hobbies = new ArrayList<>();
 
 
