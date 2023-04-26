@@ -1,7 +1,7 @@
-package com.java.resumeportal.controller;
+package com.java.resume.portal.controller;
 
-import com.java.resumeportal.entity.resumeData.*;
-import com.java.resumeportal.repository.UserProfileRepository;
+import com.java.resume.portal.entity.resumeData.*;
+import com.java.resume.portal.repository.UserProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +15,10 @@ public class UserRestController {
 
     @Autowired
     UserProfileRepository userProfileRepository;
+    @GetMapping("/")
+    public String home(){
+        return "index";
+    }
 
     @GetMapping("/edit")
     public String edit(Model model, Principal principal, @RequestParam(required = false)String add){
@@ -58,7 +62,7 @@ public class UserRestController {
     }
 
 
-        @PostMapping("/edit")
+    @PostMapping("/edit")
     public String postEdit(Model model, Principal principal, @ModelAttribute UserProfile userProfile){
         String userName = principal.getName();
         Optional<UserProfile> userProfileOptional = userProfileRepository.findByUserName(userName);
@@ -71,7 +75,7 @@ public class UserRestController {
     }
 
     @GetMapping("/view/{userId}")
-    public String view(Principal principal,@PathVariable String userId, Model model){
+    public String view(Principal principal, @PathVariable String userId, Model model){
         if(principal != null && principal.getName() != " "){
             boolean currentUserProfile = principal.getName().equals(userId);
             model.addAttribute("currentUserProfile", currentUserProfile);
@@ -87,7 +91,7 @@ public class UserRestController {
         System.out.println(userProfile.getEducations());
         System.out.println(userProfile.getSkills());
 
-       // model.addAttribute("job", userProfile.getJobs());
+        // model.addAttribute("job", userProfile.getJobs());
         return "profile-templates/" + userProfile.getTheme() + "/index";
     }
 

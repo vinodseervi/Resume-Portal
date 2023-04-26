@@ -1,6 +1,6 @@
-package com.java.resumeportal.entity.user;
+package com.java.resume.portal.entity.user;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "user")

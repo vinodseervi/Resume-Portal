@@ -1,137 +1,137 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Joe Bloggs - Curriculum Vitae</title>
+    <title>Joe Bloggs - Curriculum Vitae</title>
 
-<meta name="viewport" content="width=device-width"/>
-<meta name="description" content="The Curriculum Vitae of Joe Bloggs."/>
-<meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="description" content="The Curriculum Vitae of Joe Bloggs."/>
+    <meta charset="UTF-8">
 
-<link type="text/css" rel="stylesheet" href="../profile-templates/1/style.css">
-<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
+    <link type="text/css" rel="stylesheet" href="../profile-templates/1/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
 
-<!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
 <body id="top">
 <div id="cv" class="instaFade">
-	<div class="mainDetails">
-		<div id="headshot" class="quickFade">
-			<img src="../profile-templates/1/headshot2.jpg" alt="Alan Smith" />
-		</div>
-		
-		<div id="name">
-			<h1 class="quickFade delayTwo"> <span th:text="${userProfile.firstName}">joe</span>
-				<span th:text="${userProfile.lastName}">Last Name</span>
-				<h2><a th:if="${currentUserProfile}" href="/edit">Edit</a></h2>
-			</h1>
-			<h2 class="quickFade delayThree"><span th:text="${userProfile.designation}">Job Title</span></h2>
-		</div>
-		
-		<div id="contactDetails" class="quickFade delayFour">
-			<ul>
-				<li>e: <span th:text="${userProfile.email}">joe@bloggs.com</span></li>
-				<li>m: <span th:text="${userProfile.phone}">01234567890</span></li>
-			</ul>
-		</div>
-		<div class="clear"></div>
-	</div>
-	
-	<div id="mainArea" class="quickFade delayFive">
-		<section>
-			<article>
-				<div class="sectionTitle">
-					<h1>Personal Profile</h1>
-				</div>
-				
-				<div class="sectionContent">
-					<p th:text="${userProfile.summary}">summary</p>
-				</div>
-			</article>
-			<div class="clear"></div>
-		</section>
+    <div class="mainDetails">
+        <div id="headshot" class="quickFade">
+            <img src="../profile-templates/1/headshot2.jpg" alt="Alan Smith" />
+        </div>
 
-		
-		<section>
-			<div class="sectionTitle">
-				<h1>Work Experience</h1>
-			</div>
-			
-			<div class="sectionContent" th:each="job : ${userProfile.jobs}">
-				<article>
-					<h2><span th:text="${job.designation}">Job Title</span>
-						<span th:text="${job.company}">Company</span></h2>
-					<!-- TODO - Tackle present situation -->
-					<p class="subDetails">
-						<span th:text="${job.formattedStartDate} ">Start Date</span> to  <!-- &emsp; for space between two word -->
-						<span th:text="${job.CurrentJob}? 'Present' : ${job.formattedEndDate}">Present</span></p>
-					<ul>
-						<li>
-							<h5>
-								<span th:text="${job.jobSummary}">Job Summary </span>
-							</h5>
-						</li>
+        <div id="name">
+            <h1 class="quickFade delayTwo"> <span th:text="${userProfile.firstName}">joe</span>
+                <span th:text="${userProfile.lastName}">Last Name</span>
+                <h2><a th:if="${currentUserProfile}" href="/edit">Edit</a></h2>
+            </h1>
+            <h2 class="quickFade delayThree"><span th:text="${userProfile.designation}">Job Title</span></h2>
+        </div>
 
-					</ul>
-				</article>
-			</div>
-			<div class="clear"></div>
-		</section>
-		
-		
-		<section>
-			<div class="sectionTitle">
-				<h1>Key Skills</h1>
-			</div>
-			
-			<div class="sectionContent" th:each="skills : ${userProfile.skills}">
-				<ul class="keySkills">
-					<h4><span th:text="${skills.skill}">A Key Skill</span></h4>
+        <div id="contactDetails" class="quickFade delayFour">
+            <ul>
+                <li>e: <span th:text="${userProfile.email}">joe@bloggs.com</span></li>
+                <li>m: <span th:text="${userProfile.phone}">01234567890</span></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
 
-				</ul>
-			</div>
-			<div class="clear"></div>
-		</section>
-		
-		
-		<section>
-			<div class="sectionTitle">
-				<h1>Education</h1>
-			</div>
-			
-			<div class="sectionContent"  th:each="education : ${userProfile.educations}">
-				<article>
-					<h2><span th:text="${education.college}">College/University</span></h2>
-					<p class="subDetails">
-						<span th:text="${education.qualification}">Qualification</span> &emsp; &emsp; &emsp;
-						<span th:text="${education.formattedStartDate} ">Start Date</span> &emsp;to&emsp;  <!-- &emsp; for space between two word -->
-						<span th:text="${education.formattedEndDate} "> End Date</span></p>
-					<p><span th:text="${education.summary}">About College</span></p>
-				</article>
+    <div id="mainArea" class="quickFade delayFive">
+        <section>
+            <article>
+                <div class="sectionTitle">
+                    <h1>Personal Profile</h1>
+                </div>
 
-			</div>
-			<div class="clear"></div>
-		</section>
+                <div class="sectionContent">
+                    <p th:text="${userProfile.summary}">summary</p>
+                </div>
+            </article>
+            <div class="clear"></div>
+        </section>
 
-		<section>
-			<div class="sectionTitle">
-				<h1>Hobbies</h1>
-			</div>
 
-			<div class="sectionContent"  th:each="hobbies : ${userProfile.hobbies}">
-				<article>
-					<h3>
-						<span th:text="${hobbies.hobbiesName}">Job Summary </span>
+        <section>
+            <div class="sectionTitle">
+                <h1>Work Experience</h1>
+            </div>
 
-					</h3>
-				</article>
+            <div class="sectionContent" th:each="job : ${userProfile.jobs}">
+                <article>
+                    <h2><span th:text="${job.designation}">Job Title</span>
+                        <span th:text="${job.company}">Company</span></h2>
+                    <!-- TODO - Tackle present situation -->
+                    <p class="subDetails">
+                        <span th:text="${job.formattedStartDate} ">Start Date</span> to  <!-- &emsp; for space between two word -->
+                        <span th:text="${job.CurrentJob}? 'Present' : ${job.formattedEndDate}">Present</span></p>
+                    <ul>
+                        <li>
+                            <h5>
+                                <span th:text="${job.jobSummary}">Job Summary </span>
+                            </h5>
+                        </li>
 
-			</div>
-			<div class="clear"></div>
-		</section>
-		
-	</div>
+                    </ul>
+                </article>
+            </div>
+            <div class="clear"></div>
+        </section>
+
+
+        <section>
+            <div class="sectionTitle">
+                <h1>Key Skills</h1>
+            </div>
+
+            <div class="sectionContent" th:each="skills : ${userProfile.skills}">
+                <ul class="keySkills">
+                    <h4><span th:text="${skills.skill}">A Key Skill</span></h4>
+
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </section>
+
+
+        <section>
+            <div class="sectionTitle">
+                <h1>Education</h1>
+            </div>
+
+            <div class="sectionContent"  th:each="education : ${userProfile.educations}">
+                <article>
+                    <h2><span th:text="${education.college}">College/University</span></h2>
+                    <p class="subDetails">
+                        <span th:text="${education.qualification}">Qualification</span> &emsp; &emsp; &emsp;
+                        <span th:text="${education.formattedStartDate} ">Start Date</span> &emsp;to&emsp;  <!-- &emsp; for space between two word -->
+                        <span th:text="${education.formattedEndDate} "> End Date</span></p>
+                    <p><span th:text="${education.summary}">About College</span></p>
+                </article>
+
+            </div>
+            <div class="clear"></div>
+        </section>
+
+        <section>
+            <div class="sectionTitle">
+                <h1>Hobbies</h1>
+            </div>
+
+            <div class="sectionContent"  th:each="hobbies : ${userProfile.hobbies}">
+                <article>
+                    <h3>
+                        <span th:text="${hobbies.hobbiesName}">Job Summary </span>
+
+                    </h3>
+                </article>
+
+            </div>
+            <div class="clear"></div>
+        </section>
+
+    </div>
 </div>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

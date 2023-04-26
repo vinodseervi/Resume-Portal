@@ -43,10 +43,10 @@ tr:nth-child(even) {
 
 <body>
 
-    <h1 th:text="${userId} + '\'s Profile'">Profile</h1>
-    <div class="container">
-        <br>
-        <h3>User Profile</h3>
+<h1 th:text="${userId} + '\'s Profile'">Profile</h1>
+<div class="container">
+    <br>
+    <h3>User Profile</h3>
     <form action="#" th:action="@{/edit}" th:object="${userProfile}" method="post">
         <div class="form-group">
             <label>Select your Profile theme</label>
@@ -84,12 +84,12 @@ tr:nth-child(even) {
         <table>
             <thead>
             <tr>
-            <th>Company</th>
-            <th>Designation</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Job Status</th>
-            <th>Job Summary</th>
+                <th>Company</th>
+                <th>Designation</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Job Status</th>
+                <th>Job Summary</th>
                 <th>Delete</th>
 
             </tr>
@@ -141,33 +141,33 @@ tr:nth-child(even) {
         <div class="row">
             <div class="column">
 
-        <h3>Technical Skills</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>Add Skills &emsp; *(max 6)</th>
-            </tr>
-            </thead>
-            <tr th:each="skills, stat: *{skills}">
-               <td><input class="form-control" th:field="*{skills[__${stat.index}__].skill}"></td>
-                <td><a th:href="@{'./delete?type=skills&index=' + ${stat.index}}">Delete</a></td>
-            </tr>
-        </table>
+                <h3>Technical Skills</h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Add Skills &emsp; *(max 6)</th>
+                    </tr>
+                    </thead>
+                    <tr th:each="skills, stat: *{skills}">
+                        <td><input class="form-control" th:field="*{skills[__${stat.index}__].skill}"></td>
+                        <td><a th:href="@{'./delete?type=skills&index=' + ${stat.index}}">Delete</a></td>
+                    </tr>
+                </table>
                 <p><a href="./edit?add=skills">Add Skills</a></p>
             </div>
             <div class="column">
-        <h3>Hobbies </h3>
-        <table>
-            <thead>
-            <tr>
-                <th>Add Hobbies &emsp; *(max 6)</th>
-            </tr>
-            </thead>
-            <tr th:each="Hobbies, stat: *{Hobbies}">
-                <td><input class="form-control" th:field="*{Hobbies[__${stat.index}__].hobbiesName}"></td>
-                <td><a th:href="@{'./delete?type=hobbies&index=' + ${stat.index}}">Delete</a></td>
-            </tr>
-        </table>
+                <h3>Hobbies </h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Add Hobbies &emsp; *(max 6)</th>
+                    </tr>
+                    </thead>
+                    <tr th:each="Hobbies, stat: *{Hobbies}">
+                        <td><input class="form-control" th:field="*{Hobbies[__${stat.index}__].hobbiesName}"></td>
+                        <td><a th:href="@{'./delete?type=hobbies&index=' + ${stat.index}}">Delete</a></td>
+                    </tr>
+                </table>
                 <p><a href="./edit?add=hobbies">Add Hobbies</a></p>
             </div>
 
@@ -180,7 +180,7 @@ tr:nth-child(even) {
         <br>
 
     </form>
-    </div>
+</div>
 
 </body>
 </html>
