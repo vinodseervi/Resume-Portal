@@ -1,10 +1,7 @@
-package com.java.resumeportal.entity.resumeData;
+package com.java.resume.portal.entity.resumeData;
 
-import jakarta.persistence.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import javax.persistence.*;
+import java.util.*;
 
 @Entity
 @Table(name = "userProfile")
@@ -31,7 +28,7 @@ public class UserProfile {
     private String designation;
 
     @OneToMany(cascade = CascadeType.ALL,
-        orphanRemoval = true)
+            orphanRemoval = true)
     @JoinColumn(name = "job_id")
     List<Job> jobs = new ArrayList<>();
 

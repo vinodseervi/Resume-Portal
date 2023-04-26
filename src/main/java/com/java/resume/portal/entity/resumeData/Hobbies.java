@@ -1,6 +1,6 @@
-package com.java.resumeportal.entity.resumeData;
+package com.java.resume.portal.entity.resumeData;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "hobbies")

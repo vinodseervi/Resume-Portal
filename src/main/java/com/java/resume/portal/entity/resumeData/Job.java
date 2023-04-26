@@ -1,23 +1,22 @@
-package com.java.resumeportal.entity.resumeData;
+package com.java.resume.portal.entity.resumeData;
 
-import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 @Entity
-@Table(name = "education")
-public class Education {
-
+@Table(name = "jobs")
+public class Job {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int id;
-    @Column(name = "college_name")
-    private String college;
-    @Column(name = "qualification")
-    private String qualification;
+    @Column(name = "company")
+    private String company;
+    @Column(name = "designation")
+    private String designation;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "start_date")
     private LocalDate startDate;
@@ -25,18 +24,22 @@ public class Education {
     @Column(name = "end_date")
     private LocalDate endDate;
 
-    @Column(name = "summary")
-    private String Summary;
+    @Column(name = "job_status")
+    private boolean CurrentJob;
+    @Column(name = "job_summary")
+    private String jobSummary;
+
 
     @Override
     public String toString() {
-        return "Education{" +
+        return "Job{" +
                 "id=" + id +
-                ", college='" + college + '\'' +
-                ", qualification='" + qualification + '\'' +
+                ", company='" + company + '\'' +
+                ", designation='" + designation + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
-                ", Summary='" + Summary + '\'' +
+                ", CurrentJob=" + CurrentJob +
+                ", jobSummary='" + jobSummary + '\'' +
                 '}';
     }
 
@@ -48,20 +51,20 @@ public class Education {
         this.id = id;
     }
 
-    public String getCollege() {
-        return college;
+    public String getCompany() {
+        return company;
     }
 
-    public void setCollege(String college) {
-        this.college = college;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
-    public String getQualification() {
-        return qualification;
+    public String getDesignation() {
+        return designation;
     }
 
-    public void setQualification(String qualification) {
-        this.qualification = qualification;
+    public void setDesignation(String designation) {
+        this.designation = designation;
     }
 
     public LocalDate getStartDate() {
@@ -88,11 +91,19 @@ public class Education {
         return endDate.format(DateTimeFormatter.ofPattern("MMM-yyyy"));
     }
 
-    public String getSummary() {
-        return Summary;
+    public boolean isCurrentJob() {
+        return CurrentJob;
     }
 
-    public void setSummary(String summary) {
-        Summary = summary;
+    public void setCurrentJob(boolean currentJob) {
+        CurrentJob = currentJob;
+    }
+
+    public String getJobSummary() {
+        return jobSummary;
+    }
+
+    public void setJobSummary(String jobSummary) {
+        this.jobSummary = jobSummary;
     }
 }

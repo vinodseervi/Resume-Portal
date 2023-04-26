@@ -1,14 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:th="http://www.thymeleaf.org"  >
 
 <head>
-     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-     <title>One Page Resume</title>
+    <title>One Page Resume</title>
 
-     <style type="text/css">
+    <style type="text/css">
         * { margin: 0; padding: 0; }
         body { font: 16px Helvetica, Sans-Serif; line-height: 24px; background: url(../profile-templates/2/images/noise.jpg); }
         .clear { clear: both; }
@@ -31,87 +31,88 @@
 
 <body>
 
-    <div id="page-wrap">
-    
-        <img src="../profile-templates/2/images/cthulu.png" alt="Photo of Cthulu" id="pic" />
-    
-        <div id="contact-info" class="vcard">
-        
-            <!-- Microformats! -->
-        
-            <h1 class="fn"><span th:text="${userProfile.firstName}">joe</span>
-                <span th:text="${userProfile.lastName}">bloggs</span><br>
-              <h3>  <span th:text="${userProfile.designation}">Job Title</span></h3>
-            </h1>
-        
+<div id="page-wrap">
+
+    <img src="../profile-templates/2/images/cthulu.png" alt="Photo of Cthulu" id="pic" />
+
+    <div id="contact-info" class="vcard">
+
+        <!-- Microformats! -->
+
+        <h1 class="fn"><span th:text="${userProfile.firstName}">joe</span>
+            <span th:text="${userProfile.lastName}">bloggs</span>
+            <h2><a th:if="${currentUserProfile}" href="/edit">Edit</a></h2><br>
+            <h3>  <span th:text="${userProfile.designation}">Job Title</span></h3>
+        </h1>
+
+        <p>
+            Cell: <span class="tel" th:text="${userProfile.phone}">555-666-7777</span><br />
+            <!-- TODO : Find out how to add variable to attribute value -->
+            Email: <a class="email"> <span th:text="${userProfile.email}">joe@bloggs.com</span></a>
+        </p>
+    </div>
+
+    <div id="objective">
+        <p th:text="${userProfile.summary}">Summary</p>
+    </div>
+
+    <div class="clear"></div>
+
+    <dl>
+        <dd class="clear"></dd>
+
+        <dt>Education</dt>
+        <dd th:each="education : ${userProfile.educations}">
+            <p><strong><span th:text="${education.college}">College/University</span></strong></p>
+            <p> <span th:text="${education.qualification}">Qualification</span>  &emsp;-&emsp;
+                <span th:text="${education.formattedStartDate} ">Start Date</span> to  <!-- &emsp; for space between two word -->
+                <span th:text="${education.formattedEndDate} "> End Date</span></p> </p>
+            <p><span th:text="${education.summary}">About College</span></p>
+        </dd>
+
+        <dd class="clear"></dd>
+
+        <dt>Skills</dt>
+        <dd th:each="skills : ${userProfile.skills}">
+            <p> <strong><span th:text="${skills.skill}">A Key Skill</span></strong></p>
+
+        </dd>
+
+        <dd class="clear"></dd>
+
+        <dt>Experience</dt>
+        <dd th:each="job : ${userProfile.jobs}">
+            <p><strong><span th:text="${job.company}">Company</span> &emsp;</strong>
+                <span th:text="${job.designation}">Job Title</span>&emsp;-&emsp;
+                <span th:text="${job.formattedStartDate} ">Start Date</span> to  <!-- &emsp; for space between two word -->
+                <span th:text="${job.CurrentJob}? 'Present' : ${job.formattedEndDate}">Present</span></p></p>
+            <ul>
+                <li>
+                    <h5>
+                        <span th:text="${job.jobSummary}">Job Summary </span>
+                    </h5>
+                </li>
+
+            </ul>
+        </dd>
+
+        <dd class="clear"></dd>
+
+        <dt>Hobbies</dt>
+        <dd th:each="hobbies : ${userProfile.hobbies}">
             <p>
-                Cell: <span class="tel" th:text="${userProfile.phone}">555-666-7777</span><br />
-                <!-- TODO : Find out how to add variable to attribute value -->
-                Email: <a class="email"> <span th:text="${userProfile.email}">joe@bloggs.com</span></a>
-            </p>
-        </div>
-                
-        <div id="objective">
-            <p th:text="${userProfile.summary}">Summary</p>
-        </div>
-        
-        <div class="clear"></div>
-        
-        <dl>
-            <dd class="clear"></dd>
-            
-            <dt>Education</dt>
-            <dd th:each="education : ${userProfile.educations}">
-                <p><strong><span th:text="${education.college}">College/University</span></strong></p>
-                <p> <span th:text="${education.qualification}">Qualification</span>  &emsp;-&emsp;
-                    <span th:text="${education.formattedStartDate} ">Start Date</span> to  <!-- &emsp; for space between two word -->
-                    <span th:text="${education.formattedEndDate} "> End Date</span></p> </p>
-                <p><span th:text="${education.summary}">About College</span></p>
-            </dd>
-            
-            <dd class="clear"></dd>
-            
-            <dt>Skills</dt>
-            <dd th:each="skills : ${userProfile.skills}">
-                <p> <strong><span th:text="${skills.skill}">A Key Skill</span></strong></p>
-
-            </dd>
-            
-            <dd class="clear"></dd>
-            
-            <dt>Experience</dt>
-            <dd th:each="job : ${userProfile.jobs}">
-                <p><strong><span th:text="${job.company}">Company</span> &emsp;</strong>
-                    <span th:text="${job.designation}">Job Title</span>&emsp;-&emsp;
-                    <span th:text="${job.formattedStartDate} ">Start Date</span> to  <!-- &emsp; for space between two word -->
-                    <span th:text="${job.CurrentJob}? 'Present' : ${job.formattedEndDate}">Present</span></p></p>
-                <ul>
-                    <li>
-                        <h5>
-                            <span th:text="${job.jobSummary}">Job Summary </span>
-                        </h5>
-                    </li>
-
-                </ul>
-            </dd>
-            
-            <dd class="clear"></dd>
-            
-            <dt>Hobbies</dt>
-            <dd th:each="hobbies : ${userProfile.hobbies}">
-                <p>
-                    <h3>
+            <h3>
                 <span th:text="${hobbies.hobbiesName}">Job Summary </span>
 
-                    </h3>
-                </p></dd>
-            
-            <dd class="clear"></dd>
-        </dl>
-        
-        <div class="clear"></div>
-    
-    </div>
+            </h3>
+            </p></dd>
+
+        <dd class="clear"></dd>
+    </dl>
+
+    <div class="clear"></div>
+
+</div>
 
 </body>
 
