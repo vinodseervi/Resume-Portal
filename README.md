@@ -1,4 +1,3 @@
 # Resume-Portal
 Building a resume portal
-![alt text](http://url/to/resumePortal1.png)
-![alt text](https://github.com/[vinodseervi]/[Resume-Portal]/blob/[master]/resumePortal1.png?raw=true)
+![resumePortal1](https://user-images.githubusercontent.com/65346730/234491305-995eb0f8-fcc4-436a-acc6-89bcccddadce.png)
