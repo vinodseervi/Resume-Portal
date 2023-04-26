@@ -1,0 +1,20 @@
+INSERT INTO `resume_portal`.`hobbies`
+VALUES 
+(1, 'Archery',1),
+(2, 'Gardening',1),
+(3, 'Baking',1),
+(4, 'Calligraphy',1),
+(5, 'C',1),
+(6, 'Archery',1),
+(7, 'Gardening',2),
+(8, 'Gardening',2),
+(9, 'JS',2),
+(10, 'Spring Boot',2),
+(11, 'Calligraphy',2),
+(12, 'Baking',2),
+(13, 'Calligraphy',3),
+(14, 'Baking',3),
+(15, 'Archery',3),
+(16, 'Gardening',3),
+(17, 'Gym boy',3),
+(18, 'Baking',3)
